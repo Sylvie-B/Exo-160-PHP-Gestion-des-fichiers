@@ -39,10 +39,22 @@ echo "<br><br>";
 if(!file_exists('toto.txt')){
     echo "Le fichier n'existe pas !";
 }
-
+echo "<br><br>";
 /**
  * Super bonus.
  * Parcourrez votre fichier, à chaque fois que vous rencontrez le caractère 'a', remplacez le par le caractère '@'
  * Attention, il y a un piège avec les pointeurs, et une manière très simple de procéder... réfléchissez...
  */
 // TODO Votre code ici si vous faites le bonus.
+$file = fopen('monText.txt', 'r+b');
+
+while ($char = fgetc($file)) {
+    if($char !== 'a') {
+        echo $char;
+    }
+    else{
+        echo "@";
+    }
+}
+
+fclose($file);
